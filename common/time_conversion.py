@@ -7,23 +7,22 @@ def raw_time_string_to_ts_format(datetime_str, from_zone=None, datetime_formats=
     
         Inputs:
             datetime_str - raw datetime
-            from_zone - timezone of input can be either string (i.e. GMT-5) or one of these types:
+            from_zone - timezone of input can be either string (i.e. "GMT-5") or a timezone type 
+                recognized by the arrow.get function such as:
                 [dateparser.timezone_parser.StaticTzInfo,dateutil.tz.tz.tzutc,dateutil.tz.tz.tzoffset]
-                This will be preferred to the embedded timezone if one is present.
-                If neither is present, the input zone will be assumed GMT and no 'Z' will be
+                This will replace the embedded timezone if one is present.
+                If neither is present, the input time will not be shifted, and no 'Z' will be
                 added to the output.
             datetime - list of arrow format strings to try(https://arrow.readthedocs.io/en/stable/#format)
             
-        Outpu:
-                datetime iso formatted string with millisecond precision in GMT indicated by 'Z' if 
+        Output:
+                Datetime iso formatted string with millisecond precision in GMT indicated by 'Z' if 
                 there was an input from_zone or a timezone embedded in the raw string
-                    i.e.: "20200512T235847.070Z"
+                (i.e.: "2019-07-17T14:21:00.000Z").
+                If there is no timezone input nad none embedded in the input raw string, the time will
+                be changed to the same format, not shifted and nothing appended to the end.
+                (i.e. "2019-07-17T11:21:00.000")
     """
-    timezone_types = [
-        dateparser.timezone_parser.StaticTzInfo,
-        tz.tz.tzutc,
-        tz.tz.tzoffset,
-    ]
 
     if len(datetime_formats) > 0:  # If formats are provided, use arrow
         initial_parse = arrow.get(datetime_str, datetime_formats)
@@ -36,39 +35,39 @@ def raw_time_string_to_ts_format(datetime_str, from_zone=None, datetime_formats=
 
     embedded_zone = initial_parse.tzinfo  # Works for both arrow and dateparser
 
-    # prefer the provided timezone to the embedded one
+    # Logic to determine source of the timezone to convert from and
+    #  prefer the provided timezone over the embedded one
     from_zone_known = True
     parsed_time = initial_parse
     if from_zone is None and embedded_zone is None:
         from_zone_known = False
-    elif from_zone is not None:  # use input from_zone
-        rep_time = str(
-            datetime.datetime(
-                initial_parse.year,
-                initial_parse.month,
-                initial_parse.day,
-                initial_parse.hour,
-                initial_parse.minute,
-                initial_parse.second,
-                initial_parse.microsecond,
-            )
-        )  # there may be a cleaner way to do this
-        parsed_time = arrow.get(rep_time, tzinfo=tz.gettz(from_zone))
-    elif from_zone is None:  # embedded only if none is input
-        from_zone = embedded_zone
+    elif from_zone is not None:
+        if isinstance(from_zone, str):
+            zone_use = tz.gettz(from_zone)
+        else:
+            zone_use = from_zone
 
-    # Make sure we have a valid timezone to use
-    if any(
-        [isinstance(from_zone, typ) for typ in timezone_types]
-    ):  # This may be input or embedded
-        zone_use = from_zone
-    else:  # this will handle input strings
-        zone_use = tz.gettz(from_zone)
+        if embedded_zone is not None:  # use input from_zone
+            time_without_zone = str(
+                datetime.datetime(  # there may be a cleaner way to do this
+                    initial_parse.year,
+                    initial_parse.month,
+                    initial_parse.day,
+                    initial_parse.hour,
+                    initial_parse.minute,
+                    initial_parse.second,
+                    initial_parse.microsecond,
+                )
+            )
+            parsed_time = arrow.get(time_without_zone, tzinfo=zone_use)
+
+    else:  # embedded only if from_zone is not input
+        zone_use = embedded_zone
 
     if from_zone_known:
         datetime_iso_local = arrow.get(str(parsed_time), tzinfo=zone_use)
         iso_indicator_str = "Z"
-    else:  # Default to GMT
+    else:  # Set to GMT to match output zone and have no shift
         datetime_iso_local = arrow.get(str(parsed_time), tzinfo=tz.gettz("GMT"))
         iso_indicator_str = ""
 
