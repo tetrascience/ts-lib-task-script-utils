@@ -54,13 +54,10 @@ def test_unreadable_format():
 
 def test_format_strings():
     raw_format_expect = [
-        (
-            "2020-03-06T17:19:45.706000-05:00",
-            "YYYY-MM-DDTHH:mm:ss.SZZ",
-            "2020-06-03T22:19:45.706Z",
-        ),
         ("20200512T235847.070Z", "YYYYMMDDTHHmmss.SZ", "2020-05-12T23:58:47.070Z"),
     ]
+    for raw, format, expect in raw_format_expect:
+        assert convert_datetime_to_ts_format(raw, format) == expect
 
 
 def test_YDM_order():
