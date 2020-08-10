@@ -12,6 +12,8 @@ pytest = "*"
 [packages]
 numpy = "*"
 setuptools = "*"
+arrow = "*"
+dateparser = "*"
 
 [requires]
 python_version = "3.7"
