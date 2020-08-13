@@ -23,8 +23,8 @@ Utility functions for task scripts
 3. Add the function's dependencies to `setup.py` under `REQUIRES` (versions can be set [like so](https://stackoverflow.com/questions/8161617/how-can-i-specify-library-versions-in-setup-py)). Combined with including `"-e ." = "*"` in the Pipfile, package dependencies are installed. For more information, see [this](https://github.com/pypa/pipenv/issues/209#issuecomment-337409290) response.
 
 ## Example
-See [task-scripts/common/unchained-labs-lunatic-util/v1.0.0](https://github.com/tetrascience/ts-lib-protocol-script/tree/development/task-scripts/common/unchained-labs-lunatic-util/v1.0.0). 
+See [task-scripts/common/tecan-sunrise-raw-to-ids/v1.0.0](https://github.com/tetrascience/ts-lib-protocol-script/tree/development/task-scripts/common/tecan-sunrise-raw-to-ids/v1.0.0). 
 
-You can find `task-util` package in `Pipfile` and `Pipfile.lock`
+You can find `ts-ts-util` package in `Pipfile` and `Pipfile.lock`
 
-In `src/` folder, `lunatic_util`.py uses the function `convert_to_float` in `common` module. 
+In `main.py`, the function `file_type_check` is imported from `common`.
