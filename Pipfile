@@ -10,10 +10,8 @@ pylint = "*"
 pytest = "*"
 
 [packages]
-numpy = "*"
 setuptools = "*"
-arrow = "*"
-dateparser = "*"
+"-e ." = "*"
 
 [requires]
 python_version = "3.7"
