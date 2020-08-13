@@ -14,9 +14,8 @@ VERSION = "1.0.0"
 
 REQUIRES = [
     "numpy",
-    "setuptools",
-    "arrow",
-    "dateparser"
+    "arrow>=0.15.8",
+    "dateparser>=0.7.6"
     ]
 
 setup(
