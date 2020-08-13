@@ -24,4 +24,4 @@ See [task-scripts/common/unchained-labs-lunatic-util/v1.0.0](https://github.com/
 
 You can find `task-util` package in `Pipfile` and `Pipfile.lock`
 
-In `src/` folder, `lunatic_util`.py uses the function `conver_to_float` in `common` module. 
+In `src/` folder, `lunatic_util`.py uses the function `convert_to_float` in `common` module. 

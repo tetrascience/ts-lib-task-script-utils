@@ -12,7 +12,12 @@ VERSION = "1.0.0"
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 
-REQUIRES = ["numpy"]
+REQUIRES = [
+    "numpy",
+    "setuptools",
+    "arrow",
+    "dateparser"
+    ]
 
 setup(
     name=NAME,
