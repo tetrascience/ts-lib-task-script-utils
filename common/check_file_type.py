@@ -1,7 +1,7 @@
 import typing as t
 import sys
 
-def file_type_check(filename: str, expected_type: t.Union[str, list]):
+def check_file_type(filename: str, expected_type: t.Union[str, list]):
     """Checks if a given file has the type or types that are passed in
 
     Args:
