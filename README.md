@@ -1,5 +1,7 @@
 # ts-lib-task-script-utils
 
+[![Build Status](https://travis-ci.com/tetrascience/ts-lib-task-script-utils.svg?token=7onD2L3nEXMByQUNdxv1&branch=master)](https://travis-ci.com/tetrascience/ts-lib-task-script-utils)
+
 Utility functions for task scripts
 
 - [ts-lib-task-script-utils](#ts-lib-task-script-utils)
