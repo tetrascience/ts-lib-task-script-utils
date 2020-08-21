@@ -8,9 +8,11 @@ snapshottest = "*"
 black = "*"
 pylint = "*"
 pytest = "*"
+pytest-cov = "*"
 
 [packages]
 setuptools = "*"
+ts-lib-task-script-utils = {editable = true, path = "."}
 
 [requires]
 python_version = "3.7"

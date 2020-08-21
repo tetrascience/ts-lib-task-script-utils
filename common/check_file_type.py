@@ -18,5 +18,7 @@ def check_file_type(filename: str, expected_type: t.Union[str, list]):
             assert extension == expected_type.lower()
         elif type(expected_type) == list:
             assert extension in [file_type.lower() for file_type in expected_type]
+        else:
+            raise ValueError(f'expected string or list but received {expected_type}')
     except AssertionError:
         sys.exit(f"The pipeline is expecting the file type to be {expected_type}, but the provided file has a file type of {extension}.")

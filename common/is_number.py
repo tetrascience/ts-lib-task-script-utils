@@ -11,14 +11,13 @@ def isnumber(value):
     Returns:
         (bool): True if the target is a number. False otherwise.
     """
-    try:
-        # Note boolean can be converted to number so it has to be avoided
-        if type(value) is bool:
-            return False
 
-        if isinstance(float(value), Number):
-            return True
-
+    # Note boolean can be converted to number so it has to be avoided
+    if type(value) is bool:
         return False
+
+    try:
+        float(value)
+        return True
     except:
         return False
