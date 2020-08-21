@@ -13,11 +13,10 @@ Utility functions for task scripts
 1. Make sure you have private access to this repo. 
 2. Set up your [ssh key](https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh). 
 3. Do `pipenv install -e git+git@github.com:tetrascience/ts-lib-task-script-utils.git#egg=ts-ts-util`
-4. Do `pipenv lock -r > requirements.txt`
-5. In the file you want to use the function, do `from module_name import function_name` (for example: `from common import check_file_type`)
-6. Use function: `function_name()` if imported as in step 5
-7. Alternatively, you can also import the function by using `import module_name` (for example: `import common`)
-8. Use function: `module_name.function_name()` if imported as in step 7
+4. In the file you want to use the function, do `from module_name import function_name` (for example: `from common import check_file_type`)
+5. Use function: `function_name()` if imported as in step 5
+6. Alternatively, you can also import the function by using `import module_name` (for example: `import common`)
+7. Use function: `module_name.function_name()` if imported as in step 7
    
 ## Adding Function to Repo
 1. For the function you want to add, make sure you have `__init__.py` in every folder through its path. 
