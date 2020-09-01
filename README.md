@@ -24,6 +24,9 @@ Utility functions for task scripts
 3. Add the function's dependencies to `setup.py` under `REQUIRES` (versions can be set [like so](https://stackoverflow.com/questions/8161617/how-can-i-specify-library-versions-in-setup-py)). Combined with including the `-e` flag in pipenv install, package dependencies are installed. For more information, see [this](https://pipenv-fork.readthedocs.io/en/latest/advanced.html#pipfile-vs-setup-py).
 4. Please follow an active verb form for function names (i.e. `check_file_type` vs `file_type_check`)
 
+## Known Issues
+If you get an error similar to the following error `Could not resolve hostname github.com:tetrascience: nodename nor servname provided, or not known fatal: Could not read from remote repository. Please make sure you have the correct access rights and the repository exists.`, try installing the repo using `pipenv install -e git+https://github.com/tetrascience/ts-lib-task-script-utils.git#egg=ts-ts-util` instead. You might also try deleting, re-creating, and then re-uploading to github your ssh key.
+
 ## Example
 See [task-scripts/common/tecan-sunrise-raw-to-ids/v1.0.0](https://github.com/tetrascience/ts-lib-protocol-script/tree/development/task-scripts/common/tecan-sunrise-raw-to-ids/v1.0.0). 
 
