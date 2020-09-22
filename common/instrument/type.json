@@ -1,0 +1,14 @@
+[
+    {
+        "slug": "hplc",
+        "name": "High-Pressure Liquid Chromatogrphy System"
+    },
+    {
+        "slug": "lc",
+        "name": "Liquid Chromatography System"
+    },
+    {
+        "slug": "ms",
+        "name": "Mass Spectrometer"
+    }
+]

@@ -1,0 +1,105 @@
+[
+    {
+        "slug": "agilent",
+        "name": "Agilent Technologies"
+    },
+    {
+        "slug": "beckman-coulter",
+        "name": "Beckman Coulter"
+    },
+    {
+        "slug": "biotek",
+        "name": "BioTek"
+    },
+    {
+        "slug": "bmg-labtech",
+        "name": "BMG LABTECH"
+    },
+    {
+        "slug": "bruker",
+        "name": "Bruker"
+    },
+    {
+        "slug": "charles-river",
+        "name": "Charles River"
+    },
+    {
+        "slug": "cytiva",
+        "name": "Cytiva",
+        "formerly": "GE Healthcare Life Sciences"
+    },
+    {
+        "slug": "fortebio",
+        "name": "FortéBio"
+    },
+    {
+        "slug": "gpc",
+        "name": "Global Process Concept"
+    },
+    {
+        "slug": "hanson-research",
+        "name": "Hanson Research",
+        "acquired_by": "teledyne"
+    },
+    {
+        "slug": "lighthouse",
+        "name": "LIGHTHOUSE"
+    },
+    {
+        "slug": "mettler-toledo",
+        "name": "Mettler Toledo"
+    },
+    {
+        "slug": "msd",
+        "name": "Meso Scale Diagnostics"
+    },
+    {
+        "slug": "molecular-devices",
+        "name": "Molecular Devices"
+    },
+    {
+        "slug": "nanotemper",
+        "name": "NanoTemper Technologies"
+    },
+    {
+        "slug": "perkinelmer",
+        "name": "PerkinElmer"
+    },
+    {
+        "slug": "pharmatron",
+        "name": "Dr. Schleuniger® Pharmatron",
+        "acquired_by": "sotax"
+    },
+    {
+        "slug": "proteinsimple",
+        "name": "ProteinSimple"
+    },
+    {
+        "slug": "sartorius",
+        "name": "Sartorius"
+    },
+    {
+        "slug": "sotax",
+        "name": "SOTAX"
+    },
+    {
+        "slug": "tecan",
+        "name": "Tecan"
+    },
+    {
+        "slug": "teledyne",
+        "name": "Teledyne Hanson Research"
+    },
+    {
+        "slug": "thermo-fisher",
+        "name": "Thermo Fisher Scientific"
+    },
+    {
+        "slug": "waters",
+        "name": "Waters"
+    },
+    {
+        "slug": "wyatt",
+        "name": "Wyatt Technology"
+    }
+]
