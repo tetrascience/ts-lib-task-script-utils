@@ -5,6 +5,7 @@
 Utility functions for task scripts
 
 - [Installation](#installation)
+- [Troubleshooting installation](#troubleshooting-installation)
 - [Adding a Function to the Repo](#adding-a-function-to-the-repo)
 - [Example](#example)
 
@@ -16,6 +17,18 @@ Utility functions for task scripts
 4. Use function: `function_name()` if imported as in step 5
 5. Alternatively, you can also import the function by using `import module_name` (for example: `import common`)
 6. Use function: `module_name.function_name()` if imported as in step 7
+
+## Troubleshooting installation
+We have found that some users run into the following error upon installing with pipenv:
+```
+ERROR: Requested ts-lib-task-script-utils from git+ssh://****@github.com/tetrascience/ts-lib-task-script-utils.git#egg=ts-ts-util (from -r /var/folders/4p/9yhw2cfx23n39w_9dhhy1yl00000gn/T/pipenv-46s_v3k4-requirements/pipenv-f4o6ngps-requirement.txt (line 1)) has different name in metadata: 'ts-lib-task-script-utils
+```
+This is often caused by incorrect initial installation of the package.
+If you encounter this error, please take the following steps to resolve it:
+1. Clear pipenv environment: `pipenv --rm`
+2. Delete `pipfile.lock`
+3. Delete the `ts-ts-util` or `ts-lib-task-script-utils` line from `pipfile` and save
+4. Re-run `pipenv install -e 'git+ssh://git@github.com/tetrascience/ts-lib-task-script-utils.git#egg=ts-ts-util'`
 
 ## Adding a Function to the Repo
 
